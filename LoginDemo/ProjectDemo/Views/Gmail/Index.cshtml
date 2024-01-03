@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index GMAIL</h2>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+<button id="ListarThreads" class="btn btn-success">ListarThreads</button>
+
+<div id="threadsContainer"></div>
+
+<script>
+    var threads = [];
+
+    $(document).ready(function () {
+        $("#ListarThreads").click(function () {
+            $.ajax({
+                type: "GET",
+                url: "/Gmail/ListarThreads",
+                success: function (data) {
+                    console.log("ListarThreads: ", data);
+
+                    // Limpiar el contenedor antes de agregar nuevos elementos
+                    $("#threadsContainer").empty();
+
+                    // Verificar si la solicitud fue exitosa
+                    if (data.status) {
+                        // Mostrar el mensaje de éxito
+                        $("#threadsContainer").append("<p>" + data.msg + "</p>");
+
+                        // Iterar sobre los hilos y mostrar la información
+                        $.each(data.value.Threads, function (index, thread) {
+                            $("#threadsContainer").append("<p><strong>Snippet:</strong> " + thread.Snippet + "</p>");
+                            $("#threadsContainer").append("<p><strong>Id:</strong> " + thread.Id + "</p>");
+                            $("#threadsContainer").append("<p><strong>HistoryId:</strong> " + thread.HistoryId + "</p>");
+                            // Puedes agregar más información si es necesario
+                            $("#threadsContainer").append("<hr>");
+                        });
+                    } else {
+                        // Mostrar el mensaje de error
+                        $("#threadsContainer").append("<p><strong>Error:</strong> " + data.msg + "</p>");
+                    }
+                },
+                error: function () {
+                    alert("Error al acceder a la API de Gmail");
+                }
+            });
+        });
+    });
+</script>
+

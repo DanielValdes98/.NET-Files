@@ -1,0 +1,48 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+}
+
+<h2>Index de inicio de sesión MVC</h2>
+<div class="row">
+    <form id="frm">
+        <div class="col-lg-6 col-lg-offset-3">
+            <label for="user">Usuario: </label>
+            <input type="text" name="user" />
+
+            <label for="password">Password: </label>
+            <input type="password" name="password" />
+
+            <input type="submit" class="btn btn-success" value="Entrar" />
+        </div>
+    </form>
+</div>
+
+@section scripts
+{
+<script>
+    // Al inicio
+    $(document).ready(function () {
+        // Cuando sea el selector de jquey frm, se cambie a submit
+        $("#frm").submit(function (e) {
+            e.preventDefault(); // para que haga el submit por defecto
+
+            //Url es una clase y Content es su método
+            url="@Url.Content("~/Access/Enter")" // Da la ruta al js
+            // Invoca la funcion anonima, this es como si invocara $("#frm")
+            parametros=$(this).serialize();  // Da los atributo serailizados, listos para la peticion
+
+            $.post(url, parametros, function (data) {
+
+                if (data=="1"){
+                    document.location = "@Url.Content("~/")";
+                } else {
+                    alert(data);
+                }
+
+            })
+        })
+    })
+</script>
+}

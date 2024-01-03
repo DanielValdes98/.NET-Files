@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\AppBoostrap1.props" />
+</Project>

@@ -1,0 +1,15 @@
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\bin\Debug\net6.0\ConceptosPOO.exe
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\bin\Debug\net6.0\ConceptosPOO.deps.json
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\bin\Debug\net6.0\ConceptosPOO.runtimeconfig.json
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\bin\Debug\net6.0\ConceptosPOO.dll
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\bin\Debug\net6.0\ConceptosPOO.pdb
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.csproj.AssemblyReference.cache
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.AssemblyInfoInputs.cache
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.AssemblyInfo.cs
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.csproj.CoreCompileInputs.cache
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.dll
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\refint\ConceptosPOO.dll
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.pdb
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ConceptosPOO.genruntimeconfig.cache
+C:\Users\Maghi\source\repos\ConceptosPOO\ConceptosPOO\obj\Debug\net6.0\ref\ConceptosPOO.dll

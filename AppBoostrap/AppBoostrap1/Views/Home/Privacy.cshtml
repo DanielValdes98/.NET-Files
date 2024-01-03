@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Privacy Policy";
+}
+<h1>@ViewData["Title"]</h1>
+
+<p>Use this page to detail your site's privacy policy.</p>
+
+<ul class="nav nav-tabs">
+    <li class="nav-item">
+        <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#file">
+            File
+        </button>
+    </li>
+
+    <li class="nav-item">
+        <button class="nav-link" data-bs-toggle="tab" data-bs-target="#set">
+            Settings
+        </button>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade show active" id="file">
+        Content File
+    </div>
+
+    <div class="tab-pane fade" id="set">
+        Content Settings
+    </div>
+</div>
+
+<button class="btn btn-primary" data-bs-toggle="offcanvas" data-bs-target="#ejemploOffCanvas">
+    Abrir Offcanvas
+</button>
+
+<div class="offcanvas offcanvas-end" tabindex="-1" id="ejemploOffCanvas">
+    <div class="offcanvas-header">
+        <h5 class="offcanvas-title">Mi aplicacion</h5>
+        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+    </div>
+    <div class="offcanvas-body">
+        <div>
+            Un texto de ejemplo
+        </div>
+    </div>
+</div>
+
+<button type="button" class="btn btn-warning" onclick="mostrarToast()">Mostrar Toast</button>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 11">
+    <div class="toast" id="miToast">
+        <div class="toast-header">
+            <strong class="me-auto">Mensaje enviado</strong>
+            <small>Hace unos instantes</small>
+            <button class="btn-close" data-bs-dismiss="toast"></button>
+        </div>
+        <div class="toast-body">
+            El mensaje fue enviado
+        </div>
+    </div>
+
+</div>
+
+@section Scripts{
+    <script>
+        function mostrarToast(){
+            var ejemploToast = document.getElementById('miToast');
+            var toast = new bootstrap.Toast(ejemploToast);
+            toast.show();
+        }
+    </script>
+}

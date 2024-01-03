@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="curso_mvcModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="cstate">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="user" Relationship="curso_mvcModel.FK_user_cstate" FromRole="cstate" ToRole="user" />
+  </EntityType>
+  <EntityContainer Name="curso_mvcEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="cstate" EntityType="Self.cstate" />
+    <EntitySet Name="user" EntityType="curso_mvcModel.user" />
+    <AssociationSet Name="FK_user_cstate" Association="curso_mvcModel.FK_user_cstate">
+      <End Role="cstate" EntitySet="cstate" />
+      <End Role="user" EntitySet="user" />
+    </AssociationSet>
+    <EntitySet Name="animal" EntityType="curso_mvcModel.animal" />
+    <EntitySet Name="Animalclass" EntityType="curso_mvcModel.Animalclass" />
+    <AssociationSet Name="FK_animal_Animalclass" Association="curso_mvcModel.FK_animal_Animalclass">
+      <End Role="Animalclass" EntitySet="Animalclass" />
+      <End Role="animal" EntitySet="animal" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="user">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="password" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="idState" Type="Int32" />
+    <Property Name="edad" Type="Int32" />
+    <NavigationProperty Name="cstate" Relationship="curso_mvcModel.FK_user_cstate" FromRole="user" ToRole="cstate" />
+  </EntityType>
+  <Association Name="FK_user_cstate">
+    <End Type="curso_mvcModel.cstate" Role="cstate" Multiplicity="0..1" />
+    <End Type="curso_mvcModel.user" Role="user" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="cstate">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="user">
+        <PropertyRef Name="idState" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="animal">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="idAnimal_class" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="Animalclass" Relationship="curso_mvcModel.FK_animal_Animalclass" FromRole="animal" ToRole="Animalclass" />
+  </EntityType>
+  <EntityType Name="Animalclass">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="animal" Relationship="curso_mvcModel.FK_animal_Animalclass" FromRole="Animalclass" ToRole="animal" />
+  </EntityType>
+  <Association Name="FK_animal_Animalclass">
+    <End Type="curso_mvcModel.Animalclass" Role="Animalclass" Multiplicity="1" />
+    <End Type="curso_mvcModel.animal" Role="animal" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Animalclass">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="animal">
+        <PropertyRef Name="idAnimal_class" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
